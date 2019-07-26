@@ -26,7 +26,7 @@ while read -r varLINE; do
 	 } else { 
 		printf "echo -n \"Trying %s...\"\n",$1 > "/dev/fd/3";
 		printf "curl -s -X PUT -d \"name=%s&bulk_fields=Owner:%s, Application Contact:%s\" --netrc-file \"$fileNETRC\" \"https://ipam.optivmss.com/api/1.0/device/custom_field/\"\n",$1,$2,$3 > "/dev/fd/3";
-	 }
+	 	}
 	}' <<<"$varLINE" || { continue; }
 	printf 'echo\n' >&3;
 done < "${1:-/proc/self/fd/0}"
