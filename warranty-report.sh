@@ -1,0 +1,1 @@
+curl --netrc -s -X POST -d 'header=yes&query=SELECT d.name as device_name, x.contract_type_name, x.service_type_name, x.end_date from view_device_v1 d left join view_purchaselineitems_to_devices_v1 p on p.device_fk = d.device_pk join view_purchaselineitem_v1 x on p.purchaselineitem_fk = x.purchaselineitem_pk order by d.name' 'https://ipam.optivmss.com/services/data/v1.0/query/' 
